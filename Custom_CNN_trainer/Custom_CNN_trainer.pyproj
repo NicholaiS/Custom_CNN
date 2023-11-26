@@ -22,9 +22,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Capture_dataset.py" />
+    <Compile Include="Capture_test_image.py" />
+    <Compile Include="Class_accuracy_test.py" />
     <Compile Include="Custom_CNN_trainer.py" />
     <Compile Include="extract_weights.py" />
     <Compile Include="Labler.py" />
+    <Compile Include="Network_tester.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="cifar-10-batches-py\" />

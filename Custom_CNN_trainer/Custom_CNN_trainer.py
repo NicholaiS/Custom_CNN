@@ -4,19 +4,22 @@ import numpy as np
 import pickle
 import cv2
 
-# Load your custom dataset
-with open('custom_dataset.pkl', 'rb') as f:
-    custom_images, custom_labels = pickle.load(f)
+def load_and_preprocess_data(file_path):
+    with open(file_path, 'rb') as f:
+        custom_images, custom_labels = pickle.load(f)
 
-# Normalize pixel values
-custom_images = custom_images / 255.0
+    custom_images = custom_images / 255.0
+
+    # Convert images to grayscale using OpenCV
+    custom_images_gray = np.array([cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) if len(img.shape) == 3 else img for img in custom_images])
+
+    return custom_images_gray, custom_labels
+
+# Load and preprocess dataset
+custom_images_gray, custom_labels = load_and_preprocess_data('custom_dataset.pkl')
 
 # Split dataset into train/validation
-train_images, val_images, train_labels, val_labels = train_test_split(custom_images, custom_labels, test_size=0.2, random_state=42)
-
-# Reshape images to match the model's input shape for grayscale images
-train_images = train_images.reshape(-1, 32, 32, 1)
-val_images = val_images.reshape(-1, 32, 32, 1)
+train_images, val_images, train_labels, val_labels = train_test_split(custom_images_gray, custom_labels, test_size=0.2, random_state=42)
 
 # 2. Build the CNN model
 model = tf.keras.Sequential([
@@ -37,10 +40,10 @@ model = tf.keras.Sequential([
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # 4. Train the model
-history = model.fit(train_images, train_labels, epochs=250, validation_data=(val_images, val_labels), batch_size=32)
+history = model.fit(train_images[..., np.newaxis], train_labels, epochs=250, validation_data=(val_images[..., np.newaxis], val_labels), batch_size=32)
 
 # 5. Evaluate the model
-test_loss, test_acc = model.evaluate(val_images, val_labels)
+test_loss, test_acc = model.evaluate(val_images[..., np.newaxis], val_labels)
 print(f'Validation accuracy: {test_acc}')
 
 # 6. Saving the weights (optional)
