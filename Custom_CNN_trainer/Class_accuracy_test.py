@@ -15,20 +15,16 @@ custom_images = custom_images / 255.0
 train_images, val_images, train_labels, val_labels = train_test_split(
     custom_images, custom_labels, test_size=0.2, random_state=42)
 
-# Reshape images to match the model's input shape for grayscale images
-train_images = train_images.reshape(-1, 32, 32, 1)
-val_images = val_images.reshape(-1, 32, 32, 1)
-
 # Load the trained model
 model = tf.keras.Sequential([
-    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(32, 32, 1)),
+    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(30, 40, 1)),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(64, activation='relu'),
     tf.keras.layers.Dense(32, activation='relu'),
     tf.keras.layers.Dense(12, activation='relu'),
     tf.keras.layers.Dense(4, activation='softmax')

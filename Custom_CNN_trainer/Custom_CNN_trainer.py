@@ -23,14 +23,14 @@ train_images, val_images, train_labels, val_labels = train_test_split(custom_ima
 
 # 2. Build the CNN model
 model = tf.keras.Sequential([
-    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(32, 32, 1)),
+    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(30, 40, 1)),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(64, activation='relu'),
     tf.keras.layers.Dense(32, activation='relu'),
     tf.keras.layers.Dense(12, activation='relu'),
     tf.keras.layers.Dense(4, activation='softmax')
@@ -40,7 +40,7 @@ model = tf.keras.Sequential([
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # 4. Train the model
-history = model.fit(train_images[..., np.newaxis], train_labels, epochs=250, validation_data=(val_images[..., np.newaxis], val_labels), batch_size=32)
+history = model.fit(train_images[..., np.newaxis], train_labels, epochs=250, validation_data=(val_images[..., np.newaxis], val_labels), batch_size=128)
 
 # 5. Evaluate the model
 test_loss, test_acc = model.evaluate(val_images[..., np.newaxis], val_labels)

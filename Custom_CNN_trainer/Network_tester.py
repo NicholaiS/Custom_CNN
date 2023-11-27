@@ -11,21 +11,18 @@ with open('custom_dataset.pkl', 'rb') as f:
 # Normalize pixel values
 custom_images = custom_images / 255.0
 
-# Reshape images to match the model's input shape for grayscale images
-custom_images = custom_images.reshape(-1, 32, 32, 1)
-
 print(custom_images)
 
 # Load the trained model architecture
 model = tf.keras.Sequential([
-    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(32, 32, 1)),
+    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(30, 40, 1)),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(64, activation='relu'),
     tf.keras.layers.Dense(32, activation='relu'),
     tf.keras.layers.Dense(12, activation='relu'),
     tf.keras.layers.Dense(4, activation='softmax')
@@ -46,7 +43,7 @@ for idx in random_indices:
     cv2.destroyAllWindows()
 
     # Prepare the image for prediction
-    image = custom_images[idx].reshape(1, 32, 32, 1)
+    image = custom_images[idx].reshape(1, 30, 40, 1)
 
     # Get the prediction for the image
     prediction = model.predict(image)

@@ -26,7 +26,7 @@ def create_custom_dataset(class_0_path, class_1_path, class_2_path, class_3_path
         for image_name in os.listdir(class_path):
             image_path = os.path.join(class_path, image_name)
             image = cv2.imread(image_path)  # Read image
-            image = cv2.resize(image, (32, 32))  # Resize image as needed
+            image = cv2.resize(image, (40, 30))  # Resize image as needed
 
             # Convert image to grayscale
             image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

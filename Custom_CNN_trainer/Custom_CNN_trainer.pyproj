@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c1066255-e9e1-417d-83ac-def213e9cbf0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Custom_CNN_trainer.py</StartupFile>
+    <StartupFile>Class_accuracy_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Custom_CNN_trainer</Name>
     <RootNamespace>Custom_CNN_trainer</RootNamespace>
+    <TestFramework>unittest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

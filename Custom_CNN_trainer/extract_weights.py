@@ -3,14 +3,14 @@ import numpy as np
 
 # Load your trained model architecture
 model = tf.keras.Sequential([
-    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(32, 32, 1)),
+    tf.keras.layers.Conv2D(1, (3, 3), activation='relu', input_shape=(40, 30, 1)),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Conv2D(1, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D((2, 2)),
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(64, activation='relu'),
     tf.keras.layers.Dense(32, activation='relu'),
     tf.keras.layers.Dense(12, activation='relu'),
     tf.keras.layers.Dense(4, activation='softmax')
