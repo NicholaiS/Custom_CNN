@@ -40,7 +40,7 @@ model = tf.keras.Sequential([
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # 4. Train the model
-history = model.fit(train_images[..., np.newaxis], train_labels, epochs=250, validation_data=(val_images[..., np.newaxis], val_labels), batch_size=128)
+history = model.fit(train_images[..., np.newaxis], train_labels, epochs=2000, validation_data=(val_images[..., np.newaxis], val_labels), batch_size=32)
 
 # 5. Evaluate the model
 test_loss, test_acc = model.evaluate(val_images[..., np.newaxis], val_labels)
