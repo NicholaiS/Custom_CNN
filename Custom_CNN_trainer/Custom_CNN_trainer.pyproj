@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c1066255-e9e1-417d-83ac-def213e9cbf0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Test_file.py</StartupFile>
+    <StartupFile>Log_Layers.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -29,7 +29,7 @@
     <Compile Include="extract_weights.py" />
     <Compile Include="Labler.py" />
     <Compile Include="Network_tester.py" />
-    <Compile Include="Test_file.py" />
+    <Compile Include="Log_Layers.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="cifar-10-batches-py\" />
