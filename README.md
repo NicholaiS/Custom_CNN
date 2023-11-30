@@ -1,5 +1,5 @@
 # Custom_CNN
-This reposotory contain Python code used for making and traning a CNN.
+This repository contains Python code used for making and training a CNN.
 
 
 
