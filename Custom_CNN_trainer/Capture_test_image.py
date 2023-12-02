@@ -6,7 +6,7 @@ def capture_and_save_image(image_path):
     cap = cv2.VideoCapture(0)  # Change to 1 if using an external camera
     ret, frame = cap.read()
     cap.release()
-    
+
     # Convert the captured image to grayscale
     gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
@@ -15,6 +15,12 @@ def capture_and_save_image(image_path):
     
     # Normalize pixel values to range between 0 and 1
     normalized_image = resized_image / 255.0
+    
+    # Show the resized image using cv2
+    normalized_image = cv2.resize(normalized_image, (640, 480))
+    cv2.imshow('Resized Image (40x30)', normalized_image)
+    cv2.waitKey(0)  # Wait until any key is pressed
+    cv2.destroyAllWindows()  # Close the image window
     
     # Flatten the normalized resized image
     flattened_image = normalized_image.flatten()
