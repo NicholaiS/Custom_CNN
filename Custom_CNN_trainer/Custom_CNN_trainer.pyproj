@@ -32,20 +32,10 @@
     <Compile Include="Log_Layers.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="cifar-10-batches-py\" />
     <Folder Include="Class_0\" />
     <Folder Include="Class_1\" />
     <Folder Include="Class_2\" />
     <Folder Include="Class_3\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="cifar-10-batches-py\data_batch_1" />
-    <Content Include="cifar-10-batches-py\data_batch_2" />
-    <Content Include="cifar-10-batches-py\data_batch_3" />
-    <Content Include="cifar-10-batches-py\data_batch_4" />
-    <Content Include="cifar-10-batches-py\data_batch_5" />
-    <Content Include="cifar-10-batches-py\readme.html" />
-    <Content Include="cifar-10-batches-py\test_batch" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
