@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c1066255-e9e1-417d-83ac-def213e9cbf0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Capture_test_image.py</StartupFile>
+    <StartupFile>Model_visualize.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,7 @@
     <Compile Include="Custom_CNN_trainer.py" />
     <Compile Include="extract_weights.py" />
     <Compile Include="Labler.py" />
+    <Compile Include="Model_visualize.py" />
     <Compile Include="Network_tester.py" />
     <Compile Include="Log_Layers.py" />
   </ItemGroup>
